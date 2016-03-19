@@ -16,11 +16,5 @@ setup(
 
     packages=["kazy"],
 
-    package_data={
-        "kazy": [
-            "application/kazy",
-        ],
-    },
-
-    scripts=["kazy/application/kazy"]
+    scripts=["bin/kazy"]
 )
