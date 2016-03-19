@@ -3,16 +3,7 @@ import random
 import re
 import sys
 
-COLOUR_END = "\033[0m"
-COLOURS = {
-    "cyan": "\033[46m",
-    "red": "\033[41m",
-    "green": "\033[42m",
-    "yellow": "\033[43m",
-    "blue": "\033[44m",
-    "magents": "\033[45m",
-}
-COLOURS_SET = {COLOURS[key] for key in COLOURS}
+from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET
 
 
 def main():
@@ -59,11 +50,15 @@ def get_colour(selectors):
     Returns unique colour for every selector
     """
     in_use = {item["colour"] for item in selectors}
-    available = COLOURS_SET.difference(in_use)
+    available = MAIN_COLOURS_SET.difference(in_use)
     if available:
         colour = available.pop()
     else:
-        colour = random.choice(list(COLOURS_SET))
+        available = AUX_COLOURS_SET.difference(in_use)
+        if available:
+            colour = available.pop()
+        else:
+            colour = random.choice(list(FULL_COLOURS_SET))
     return colour
 
 if __name__ == "__main__":
