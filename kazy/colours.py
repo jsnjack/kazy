@@ -5,7 +5,7 @@ MAIN_COLOURS = {
     "green": "\033[42m",
     "yellow": "\033[43m",
     "blue": "\033[44m",
-    "magents": "\033[45m",
+    "magenta": "\033[45m",
     "light_red": "\033[101m",
     "light_green": "\033[102m",
     "light_blue": "\033[104m",
