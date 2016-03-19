@@ -7,18 +7,16 @@ from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_
 
 
 def main():
-    # Read piped data
-    text = sys.stdin.read()
-
     selectors = parse_args()
 
-    regexp = "|".join("(" + item["selector"] + ")" for item in selectors)
-    splitted = re.split(regexp, text)
-    for item in selectors:
-        splitted = colourify(item, splitted)
-    colourful_text = "".join(item for item in splitted if item)
+    regexp = re.compile("|".join("(" + item["selector"] + ")" for item in selectors))
+    for line in sys.stdin:
+        splitted = regexp.split(line[:-1])
+        for item in selectors:
+            splitted = colourify(item, splitted)
+        colourful_text = "".join(item for item in splitted if item)
 
-    print(colourful_text)
+        print(colourful_text)
 
 
 def colourify(item, splitted):
