@@ -1,2 +1,2 @@
 #!/bin/bash
-python /usr/lib/python2.7/site-packages/kazy/kazy.py
+python /usr/lib/python2.7/site-packages/kazy/kazy.py "$@"
