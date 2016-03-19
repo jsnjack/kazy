@@ -3,7 +3,7 @@ import random
 import re
 import sys
 
-from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET
+from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET, BACKUP_COLOURS_SET
 
 
 def main():
@@ -56,7 +56,11 @@ def get_colour(selectors):
         if available:
             colour = available.pop()
         else:
-            colour = random.choice(list(FULL_COLOURS_SET))
+            available = BACKUP_COLOURS_SET.difference(in_use)
+            if available:
+                colour = available.pop()
+            else:
+                colour = random.choice(list(FULL_COLOURS_SET))
     return colour
 
 if __name__ == "__main__":

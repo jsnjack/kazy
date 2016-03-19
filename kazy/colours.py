@@ -6,13 +6,15 @@ MAIN_COLOURS = {
     "yellow": "\033[43m",
     "blue": "\033[44m",
     "magenta": "\033[45m",
+}
+AUX_COLOURS = {
     "light_red": "\033[101m",
     "light_green": "\033[102m",
     "light_blue": "\033[104m",
     "light_magenta": "\033[105m",
     "light_cyan": "\033[106m",
 }
-AUX_COLOURS = {
+BACKUP_COLOURS = {
     "red": "\033[31m",
     "green": "\033[32m",
     "yellow": "\033[33m",
@@ -28,4 +30,5 @@ AUX_COLOURS = {
 }
 MAIN_COLOURS_SET = {MAIN_COLOURS[key] for key in MAIN_COLOURS}
 AUX_COLOURS_SET = {AUX_COLOURS[key] for key in AUX_COLOURS}
-FULL_COLOURS_SET = MAIN_COLOURS_SET.union(AUX_COLOURS_SET)
+BACKUP_COLOURS_SET = {BACKUP_COLOURS[key] for key in BACKUP_COLOURS}
+FULL_COLOURS_SET = MAIN_COLOURS_SET.union(AUX_COLOURS_SET).union(BACKUP_COLOURS_SET)
