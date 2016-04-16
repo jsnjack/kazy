@@ -23,11 +23,9 @@ def colourify(item, splitted):
     """
     Add colours to the matched string
     """
-    start = 0
-    while item["selector"] in splitted:
-        index = splitted.index(item["selector"], start)
-        start = index
-        splitted[index] = item["colour"] + splitted[index] + COLOUR_END
+    for idx, el in enumerate(splitted):
+        if el == item["selector"]:
+            splitted[idx] = item["colour"] + splitted[idx] + COLOUR_END
     return splitted
 
 
