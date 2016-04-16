@@ -3,7 +3,7 @@ import random
 import re
 import sys
 
-from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET, BACKUP_COLOURS_SET
+from kazy.colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET, BACKUP_COLOURS_SET
 
 
 def main():
@@ -23,8 +23,10 @@ def colourify(item, splitted):
     """
     Add colours to the matched string
     """
+    start = 0
     while item["selector"] in splitted:
-        index = splitted.index(item["selector"])
+        index = splitted.index(item["selector"], start)
+        start = index
         splitted[index] = item["colour"] + splitted[index] + COLOUR_END
     return splitted
 
