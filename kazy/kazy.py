@@ -3,7 +3,7 @@ import random
 import re
 import sys
 
-from kazy.colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET, BACKUP_COLOURS_SET
+from colours import COLOUR_END, MAIN_COLOURS_SET, FULL_COLOURS_SET, AUX_COLOURS_SET, BACKUP_COLOURS_SET
 
 
 def main():
