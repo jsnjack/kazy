@@ -16,7 +16,7 @@ class PerformanceTest(unittest.TestCase):
                 {"selector": "d", "colour": MAIN_COLOURS["cyan"]},
                 {"selector": "f", "colour": MAIN_COLOURS["blue"]},
             ]):
-                mo.__iter__.return_value = ["abcdefgh" * 100 + "\n" for x in range(100)]
+                mo.readline.side_effect = ["abcdefgh" * 100 + "\n" for x in range(100)]
                 start = datetime.now()
                 cProfile.run("main()", sort="tottime")
                 took = datetime.now() - start

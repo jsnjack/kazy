@@ -10,13 +10,18 @@ def main():
     selectors = parse_args()
 
     regexp = re.compile("|".join("(" + item["selector"] + ")" for item in selectors))
-    for line in sys.stdin:
-        splitted = regexp.split(line[:-1])
-        for item in selectors:
-            splitted = colourify(item, splitted)
-        colourful_text = "".join(item for item in splitted if item)
+    while True:
+        try:
+            line = sys.stdin.readline()
+        except StopIteration:
+            break
+        else:
+            splitted = regexp.split(line[:-1])
+            for item in selectors:
+                splitted = colourify(item, splitted)
+            colourful_text = "".join(item for item in splitted if item)
 
-        print(colourful_text)
+            print(colourful_text)
 
 
 def colourify(item, splitted):
