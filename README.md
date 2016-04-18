@@ -5,6 +5,11 @@ kažy
 kažy is an application that highlights output from STDIN
 
 ### How to install?
+#### pip
+```
+pip install kazy
+```
+#### from source code
  - Clone this repository
  - Run
 ```bash
