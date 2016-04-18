@@ -13,6 +13,9 @@ def main():
     while True:
         try:
             line = sys.stdin.readline()
+            # Means that EOF is reached
+            if line == "":
+                break
         except StopIteration:
             break
         else:
