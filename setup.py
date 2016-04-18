@@ -2,9 +2,11 @@
 
 from distutils.core import setup
 
+VERSION = "0.1.2"
+
 setup(
     name="kazy",
-    version="0.1.2",
+    packages=["kazy"],
     description="Highlights STDIN data",
 
     license='MIT',
@@ -14,7 +16,10 @@ setup(
 
     url="https://github.com/jsnjack/kazy",
 
-    packages=["kazy"],
+    scripts=["bin/kazy"],
 
-    scripts=["bin/kazy"]
+    keywords=["logging", "highlight", "stdin"],
+
+    version=VERSION,
+    download_url="https://github.com/jsnjack/kazy/tarball/{}".format(VERSION)
 )
